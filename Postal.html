@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postal per a TITINA</title>
+<style>
+  /* Estils generals */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #ffe6f0, #fff6e6);
+    overflow: hidden;
+  }
+
+  /* Diapositives */
+  .slide {
+    display: none;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    color: #333;
+    font-size: 1.2em;
+  }
+
+  .slide h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #ff4d6d;
+  }
+
+  .slide.active {
+    display: block;
+  }
+
+  /* Botons */
+  .controls {
+    position: fixed;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+  }
+
+  button {
+    padding: 12px 20px;
+    font-size: 18px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff4d6d;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background-color: #ff6b88;
+  }
+</style>
+</head>
+<body>
+
+<!-- Àudio de fons -->
+<audio id="bg-music" autoplay loop>
+  <source src="happy-day.mp3" type="audio/mpeg">
+  El teu navegador no suporta àudio.
+</audio>
+
+<!-- Diapositives -->
+<div class="slide active">
+  <h1>🎉 Moltes felicitats, TITINA!</h1>
+  <p>Que aquest dia estigui ple d'alegria, rialles i moments inoblidables.</p>
+</div>
+
+<div class="slide">
+  <p>Una abraçada gran<br>Et desitjo tot l'amor i la sort del món.<br>Gràcies per ser qui ets.</p>
+</div>
+
+<div class="slide">
+  <p>Recorda...<br>Cadascun dels teus passos és una aventura i estic profundament agraït de ser al teu costat i compartir aquests moments amb tú.</p>
+</div>
+
+<div class="slide">
+  <p>Per tu:<br>Desitjo que t'agradi molt i poder-te acompanyar per gaudir junts de l'aventura!<br>— T’estima sempre, Manel</p>
+</div>
+
+<div class="slide">
+  <button onclick="showSlide(0)">Torna a començar ◀</button>
+</div>
+
+<!-- Controls per canviar diapositiva -->
+<div class="controls">
+  <button onclick="prevSlide()">◀</button>
+  <button onclick="nextSlide()">▶</button>
+</div>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = index;
+  slides[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+  let next = currentSlide + 1;
+  if(next >= slides.length) next = 0;
+  showSlide(next);
+}
+
+function prevSlide() {
+  let prev = currentSlide - 1;
+  if(prev < 0) prev = slides.length - 1;
+  showSlide(prev);
+}
+</script>
+
+</body>
+</html>
